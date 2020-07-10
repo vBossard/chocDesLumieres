@@ -6,7 +6,7 @@
 
 <ion-content>
   <ion-card>
-    <h3>Très bien {{user.pseudo}} choisi ton concurrent !</h3>
+    <h3>Très bien choisi ton concurrent !</h3>
   </ion-card>
 
 
@@ -23,7 +23,7 @@
       
       <ion-img [src]="'assets/img/' + character.image1"></ion-img>
       {{character.descriptif}}
-      <ion-button fill="outline">Choisir</ion-button>
+      <ion-button (click)="getQuiz(character.id)" fill="outline">Choisir</ion-button>
     </ion-card-content>
 
 
