@@ -1,26 +1,47 @@
+
 <ion-app>
+  <ion-header [translucent]="true">
+    <ion-toolbar>
+      <ion-buttons slot="start">
+        <ion-menu-button></ion-menu-button>
+      </ion-buttons>
+      <ion-title>{{ folder }}</ion-title>
+    </ion-toolbar>
+  </ion-header>
+  
   <ion-split-pane contentId="main-content">
     <ion-menu contentId="main-content" type="overlay">
       <ion-content>
+        <!-- Liste du Menu -->
         <ion-list id="inbox-list">
-          <ion-list-header>Inbox</ion-list-header>
-          <ion-note>hi@ionicframework.com</ion-note>
-
-          <ion-menu-toggle auto-hide="false" *ngFor="let p of appPages; let i = index">
-            <ion-item (click)="selectedIndex = i" routerDirection="root" [routerLink]="[p.url]" lines="none" detail="false" [class.selected]="selectedIndex == i">
-              <ion-icon slot="start" [ios]="p.icon + '-outline'" [md]="p.icon + '-sharp'"></ion-icon>
-              <ion-label>{{ p.title }}</ion-label>
+          <ion-list-header>Choc des Lumieres</ion-list-header>
+          <ion-menu-toggle auto-hide="false">
+            <!-- Accueil -->
+            <ion-item routerDirection="root" routerLink="home" lines="none" detail="false">
+              <ion-icon slot="start" name="home"></ion-icon>
+              <ion-label>Accueil</ion-label>
+            </ion-item>
+            <!-- Duel -->
+            <ion-item routerDirection="root" routerLink="pseudo-choice" lines="none" detail="false" >
+              <ion-icon slot="start" name="pseudo-choice"></ion-icon>
+              <ion-label>Duel</ion-label>
+            </ion-item>
+            <!-- Scores -->
+            <ion-item routerDirection="root" routerLink="score" lines="none" detail="false">
+              <ion-icon slot="start" name="home"></ion-icon>
+              <ion-label>Mes scores</ion-label>
+            </ion-item>
+            <!-- Concurrents -->
+            <ion-item routerDirection="root" routerLink="character" lines="none" detail="false">
+              <ion-icon slot="start" name="home"></ion-icon>
+              <ion-label>Concurrents</ion-label>
+            </ion-item>
+            <!-- Infos -->
+            <ion-item routerDirection="root" routerLink="infos" lines="none" detail="false">
+              <ion-icon slot="start" name="home"></ion-icon>
+              <ion-label>Infos</ion-label>
             </ion-item>
           </ion-menu-toggle>
-        </ion-list>
-
-        <ion-list id="labels-list">
-          <ion-list-header>Labels</ion-list-header>
-
-          <ion-item *ngFor="let label of labels" lines="none">
-            <ion-icon slot="start" ios="bookmark-outline" md="bookmark-sharp"></ion-icon>
-            <ion-label>{{ label }}</ion-label>
-          </ion-item>
         </ion-list>
       </ion-content>
     </ion-menu>

@@ -1,0 +1,38 @@
+[
+    {
+        "id": 1,
+        "name": "Einstein",
+        "level": "expert",
+        "descriptif": "Genie",
+        "poids":10,
+        "image1":"einstein_image1.jpg",
+        "image2":"" 
+    },
+    {
+        "id": 2,
+        "name": "Père Fouras",
+        "level": "confirmé",
+        "descriptif": "Quoi ?",
+        "poids":9,
+        "image1":"pere_fouras_image1.jpg",
+        "image2":"" 
+    },
+    {
+        "id": 3,
+        "name": "Donald Trump",
+        "level": "débutant",
+        "descriptif": "Pas ouf",
+        "poids":2,
+        "image1":"trump_image1.jpg",
+        "image2":"" 
+    },
+    {
+        "id": 4,
+        "name": "Zinédine Zidane",
+        "level": "confirmé",
+        "descriptif": "Le sport, ça il connait",
+        "poids":5,
+        "image1":"zinedine_image1.jpeg",
+        "image2":"" 
+    }   
+]
