@@ -1,0 +1,42 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>pseudoChoice</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div id="container">
+    <div>
+      <h1>Commencer un duel</h1>
+    </div>
+    <!-- Formulaire -->
+    <form [formGroup]="formInfo" (ngSubmit)="validateForm()">
+    <!-- Choix du pseudo -->
+    <div class="pseudo-div">
+      <h3>Choisissez un pseudo</h3>
+      <ion-input formControlName="pseudo" placeholder="Entrer votre pseudo"></ion-input>
+    </div>
+     <!-- Mémorisation des infos -->
+     <div>
+      <p>On garde vos scores ?</p>
+      <ion-checkbox formControlName="remember" color="light"></ion-checkbox>
+    </div>
+    <!-- Envoi du formulaire -->
+    <div>
+      <ion-button type="submit" shape="round">Commencer</ion-button>
+    </div>
+    <!-- Les erreurs -->
+    <div>
+      <p class="error ion-padding" *ngIf="errorControl.pseudo.errors?.required">
+        Allez un petit effort ! (Vous pourrez cumuler vos pièces !)
+      </p>
+      <p class="error ion-padding" *ngIf="errorControl.pseudo.errors?.minlength">
+        Au moins 3 caractères svp 
+      </p>
+      <p class="error ion-padding" *ngIf="errorControl.remember.errors?.required">
+        Vous pourrez cumuler vos pièces ! 
+      </p>
+    </div>
+  </form>
+</div>
+</ion-content>
