@@ -5,6 +5,9 @@ import CharacterData from '../../assets/data/character/characters.json';
 import { Character } from '../entities/character';
 import { QuizService } from '../services/quiz.service';
 import { Quiz } from '../entities/quiz';
+import { User } from '../entities/user';
+import { AppUser } from '../entities/appUser';
+import { UserStockageService } from '../services/user-stockage.service';
 
 @Component({
   selector: 'app-dual-choice',
@@ -13,39 +16,34 @@ import { Quiz } from '../entities/quiz';
 })
 export class DualChoicePage implements OnInit {
   // Utilisateur en cours 
-  user:User = {pseudo: "",score:0, remember:false, concurrent:0}
+  // user = {pseudo: "",scoreTotal:0, concurrent:0, einsteinScore:0, fourasScore:0,trumpScore:0,zidaneScore:0}
+  user:User;
+  appUser:AppUser;
   // Liste des concurrents
   characters:Array<Character> = CharacterData;
   // Quiz choisi par l'utilisateur
   quiz:Quiz;
 
-  constructor(private strorageService:StorageService,
+  constructor(private storageService:StorageService,
     private route: ActivatedRoute,
     private router:Router,
-    private quizService:QuizService) { 
-
-    this.route.queryParams.subscribe(params => {
-      this.user.pseudo = params.pseudo
-    })
+    private userService:UserStockageService) { 
+      this.user = this.userService.getCurrentUser();
+      console.log(this.user);
+      
   }
 
   ngOnInit() {
-    console.log(this.characters)
-    console.log(this.user['pseudo'])
-    this.strorageService.getObject(this.user.pseudo).then((user)=>{
-      this.user = user;
-    })
-    console.log(this.user)
-
-
+    console.log("Passe Ici")
   }
 
 
   getQuiz(characterId:number){
-    console.log(characterId);
     // Gérer le niveau de l'utilisateur
     // Intégrer le niveau de l'utilisateur pour choisir après le niveau du quiz
-    this.router.navigate(['game'], {queryParams : {params : characterId}});
+    this.user.concurrent = characterId;
+    this.userService.updateCurrentUser(this.user);
+    this.router.navigate(['game']);
     
   }
 }

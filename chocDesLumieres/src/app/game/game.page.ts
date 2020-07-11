@@ -2,6 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { Quiz } from '../entities/quiz';
 import { ActivatedRoute, Router } from '@angular/router';
 import { QuizService } from '../services/quiz.service';
+import { StorageService } from '../services/storage.service';
+import { User } from '../entities/user';
+import { UserStockageService } from '../services/user-stockage.service';
 
 @Component({
   selector: 'app-game',
@@ -9,6 +12,9 @@ import { QuizService } from '../services/quiz.service';
   styleUrls: ['./game.page.scss'],
 })
 export class GamePage implements OnInit {
+  
+  // user:User = {pseudo: "",scoreTotal:0, concurrent:0, einsteinScore:0, fourasScore:0,trumpScore:0,zidaneScore:0}
+  user:User;
   quiz:Quiz;
   listQuestions:Array<any> = [];
   listReponse =[];
@@ -18,24 +24,38 @@ export class GamePage implements OnInit {
   ansmwerSubmitted:boolean = false;
   showAnswerColor = false;
   disableAnswer = false;
-  constructor(private route:ActivatedRoute, private quizService:QuizService, private router:Router) { }
+
+  // Score selon le concurrent
+  currentDualScore;
+  scoreToUpdate:string;
+
+  constructor(private route:ActivatedRoute, 
+    private quizService:QuizService,
+    private router:Router,
+    private storageService:StorageService,
+    private userService:UserStockageService) { 
+      this.user = this.userService.getCurrentUser();
+      console.log(this.user);
+
+      // Récupérer le score en fonction du concurrent
+      let score = this.getCurrentConcurrent(this.user.concurrent)
+      // Récupérer la liste des questions
+      this.listQuestions = this.quizService.getQuiz(this.user.concurrent, score);
+      
+      this.questionNumber =  0;
+      // Récupérer la question courante
+      this.getCurrentQuestion();
+    }
 
   ngOnInit() {
-    this.route.queryParams.subscribe(idCharacter => {
-      console.log(idCharacter.params)
-      this.quiz = this.quizService.getQuiz(Number(idCharacter.params))
-      this.listQuestions = this.quiz.quizz['debutant'];
-      this.questionNumber =  0;
-      this.getCurrentQuestion();
-    })
+  
   }
   /**
    * Choisir la question 
    */
   getCurrentQuestion(){
-    console.log(this.listQuestions)
+    
     let questionToDisplay = this.listQuestions[this.questionNumber];
-    console.log(questionToDisplay);
     this.bonneReponse = questionToDisplay.reponse;
     // Prendre la bonne réponse
     questionToDisplay.propositions.forEach(reponse => {
@@ -45,8 +65,8 @@ export class GamePage implements OnInit {
         this.listReponse.push({text: reponse, color :"success"})
       }       
     });
-    console.log(this.listReponse)
-    this.question = questionToDisplay;
+    this.questionNumber += 1;  
+    this.question = questionToDisplay
   }
 
 
@@ -63,35 +83,81 @@ export class GamePage implements OnInit {
     }
     return array;
   }
-
+  /**
+   * Verification de la réponse du joueur
+   * @param reponseUser 
+   */
   submitAnswer(reponseUser){
     this.ansmwerSubmitted = true;
     this.showAnswerColor = true;
     this.disableAnswer = true;
-    /*
     if(reponseUser === this.bonneReponse){
-      this.user.score += 1;
-    }else{
-      this.user.score -= 1;
+      this.user.scoreTotal += 1;
+      this.user[this.scoreToUpdate] += 1;
     }
-    */
   }
 
+  /**
+   * Envoie la question suivante
+   * Verifie que le quizz n'est pas terminé
+   * Si terminé => envoie vers la page des score
+   */
   nextQuestion(){
     this.listReponse = [];
     this.ansmwerSubmitted = false;
     this.showAnswerColor = false;
     this.disableAnswer = false;
-    this.questionNumber++;
-
-    
-    if(this.listQuestions.length -1 === this.questionNumber){
-      this.router.navigate(['score']);
+    console.log("Taille de la liste des questions")
+    console.log(this.listQuestions.length)
+    console.log("Numéro de la question")
+    console.log(this.questionNumber)
+    if(this.questionNumber === this.listQuestions.length){
+      this.endQuizz();
     }else{
-      this.questionNumber++;
       this.getCurrentQuestion();
     }
     
+  }
+
+  getCurrentConcurrent(concurrent){
+    // console.log(concurrent)
+    const currentConc = Number(concurrent)
+    switch(true) { 
+      case currentConc  === 1: { 
+        this.currentDualScore = this.user.einsteinScore;
+        this.scoreToUpdate = "einsteinScore";
+        return this.user.einsteinScore;
+        break; 
+      } 
+      case currentConc  === 2: { 
+        this.currentDualScore = this.user.fourasScore;
+        this.scoreToUpdate = "fourasScore";
+        return this.user.fourasScore;
+        break; 
+      }
+      case currentConc  === 3: { 
+        this.currentDualScore = this.user.trumpScore;
+        this.scoreToUpdate = "trumpScore";
+        return this.user.trumpScore;
+        break; 
+      } 
+      case currentConc  === 4: { 
+        this.currentDualScore = this.user.zidaneScore;
+        this.scoreToUpdate = "zidaneScore";
+        return this.user.zidaneScore; 
+        break; 
+      } 
+      default: { 
+          //statements; 
+          break; 
+      } 
+    }
+  }
+
+  endQuizz(){
+    this.storageService.setObject(this.user['pseudo'], this.user);
+    this.userService.updateCurrentUser(this.user);
+    this.router.navigate(['score']);
   }
 
 

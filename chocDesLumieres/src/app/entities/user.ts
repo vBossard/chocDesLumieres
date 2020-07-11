@@ -1,6 +1,10 @@
-interface User {
+export interface User {
     pseudo:string;
-    score:number;
-    remember:boolean;
+    scoreTotal:number;
     concurrent:number;
+    //Score
+    einsteinScore:number;
+    fourasScore:number;
+    trumpScore:number;
+    zidaneScore:number;
 }
