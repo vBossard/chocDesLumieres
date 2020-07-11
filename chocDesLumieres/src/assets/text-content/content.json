@@ -1,0 +1,27 @@
+{
+    "home-page":
+        {
+            "title": "Bienvenue",
+            "slogan": [
+                {
+                    "title":"Affrontez des personnages celèbres",
+                    "content": "Choisissez parmis une liste de personnages et affrontez les sur leur terrain de prédilection",
+                    "button":"Découvrir"
+                },
+                {
+                    "title":"Montez sur le podium",
+                    "content":"A chaque victoire, vous gagner des neurones selon la difficulté du quizz. A vous de jouer pour monter sur la plus haute marche !"
+                },
+                {
+                    "title":"Apprenez en vous amusant",
+                    "content": "Pour chacune des questions, découvrez une anecdote croustillante !"
+                },
+                {
+                    "title":"Créez un profil",
+                    "content": "Enregistrer vos données pour suivre votre progression !"
+                }
+            ],
+            "start" : "Commencer !"
+        }
+    
+}
