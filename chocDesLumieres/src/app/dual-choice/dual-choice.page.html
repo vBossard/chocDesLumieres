@@ -6,7 +6,7 @@
 
 <ion-content>
   <ion-card>
-    <h3>Très bien choisi ton concurrent !</h3>
+    <h3>{{user.pseudo}}, Voici ton concurrent !</h3>
   </ion-card>
 
 
@@ -25,9 +25,6 @@
       {{character.descriptif}}
       <ion-button (click)="getQuiz(character.id)" fill="outline">Choisir</ion-button>
     </ion-card-content>
-
-
-
   </ion-card>
 
 </ion-content>

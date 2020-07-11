@@ -6,4 +6,12 @@
 
 <ion-content>
   <h1>TODO Scores</h1>
+
+  <div>
+    Votre score {{user.scoreTotal}}
+  </div>
+
+  <div>
+    <ion-button color="danger" (click)="deleteAppData()" shape="round">Effacer les données</ion-button>
+  </div>
 </ion-content>
