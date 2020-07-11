@@ -1,0 +1,20 @@
+
+.home-first-part{
+    box-shadow: 4px 4px 8px 1px rgba(0, 0, 0, 0.27);
+    border-bottom: 24px solid var(--custom-app-color);
+    border-radius: 0px 50px 0px 25px;
+}
+.home-app-title{
+    text-align: center;;
+    color:var(--custom-app-color);
+    font:menu;
+}
+
+.border-slogan{
+    border-left: 4px solid var(--custom-app-color);
+    padding-left: 10px;
+}
+.slogan-content{
+    display: flex;
+    flex-direction: column;
+}

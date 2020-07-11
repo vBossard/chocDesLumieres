@@ -1,0 +1,16 @@
+ion-card{
+    height: 50vh;
+}
+ion-card-title{
+    position: absolute;
+    color:white;
+    top: 5vh;
+    left: 2vh;
+}
+ion-card-content{
+    position: absolute;
+    bottom: 0px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}

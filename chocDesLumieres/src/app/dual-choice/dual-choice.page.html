@@ -1,29 +1,25 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>dualChoice</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
-  <ion-card>
-    <h3>{{user.pseudo}}, Voici ton concurrent !</h3>
-  </ion-card>
+  <div class="ion-padding">
+    <h1>Ok {{user.pseudo}}, choisi ton concurrent</h1>
+  </div>
 
 
   <ion-card *ngFor="let character of characters">
+    <ion-card-title>{{character.name}}</ion-card-title>
+    <ion-img class="dual-choice-pic" [src]="'assets/img/' + character.image1"></ion-img>
     <!-- Liste des concurrents -->
-    <ion-item>
-      <ion-label>
-        <p>{{character.name}}</p>
-        <p>{{character.level}}</p>
-      </ion-label>
-    </ion-item>
-  
     <ion-card-content>
-      
-      <ion-img [src]="'assets/img/' + character.image1"></ion-img>
-      {{character.descriptif}}
-      <ion-button (click)="getQuiz(character.id)" fill="outline">Choisir</ion-button>
+      <ion-row>
+        <div class="card-button">
+          <ion-button color="tertiary" fill="solid" (click)="getQuiz(character.id)">Jouer</ion-button>
+        </div>
+        
+      </ion-row>
     </ion-card-content>
   </ion-card>
 

@@ -47,7 +47,6 @@ export class PseudoChoicePage implements OnInit {
       this.user = this.userService.getCurrentUser();
       this.user.pseudo =this.formInfo.value.pseudo;
       console.log(this.user);
-      // console.log(this.appUser)
       // ================= Version avec Interface =======================
       // Vérifier la présence de l'utilisateur dans le storage
       this.storageService.getObject(this.user.pseudo).then((user)=>{

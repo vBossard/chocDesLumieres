@@ -3,10 +3,8 @@ import { StorageService } from '../services/storage.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import CharacterData from '../../assets/data/character/characters.json';
 import { Character } from '../entities/character';
-import { QuizService } from '../services/quiz.service';
 import { Quiz } from '../entities/quiz';
 import { User } from '../entities/user';
-import { AppUser } from '../entities/appUser';
 import { UserStockageService } from '../services/user-stockage.service';
 
 @Component({
@@ -18,7 +16,6 @@ export class DualChoicePage implements OnInit {
   // Utilisateur en cours 
   // user = {pseudo: "",scoreTotal:0, concurrent:0, einsteinScore:0, fourasScore:0,trumpScore:0,zidaneScore:0}
   user:User;
-  appUser:AppUser;
   // Liste des concurrents
   characters:Array<Character> = CharacterData;
   // Quiz choisi par l'utilisateur

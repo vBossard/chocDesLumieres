@@ -1,6 +1,5 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>Choix du pseudo</ion-title>
   </ion-toolbar>
 </ion-header>
 
@@ -8,16 +7,17 @@
 <ion-content [fullscreen]="true">
   <ion-card>
     <ion-card-header>
-      <ion-card-title>Bienvenue {{user.pseudo}}</ion-card-title>
-      <ion-card-subtitle>Niveau </ion-card-subtitle>
-      <ion-card-subtitle>Votre score {{user.scoreTotal}}</ion-card-subtitle>
+      <ion-card-title>Votre score {{user.scoreTotal}}</ion-card-title>
     </ion-card-header>
   
     <ion-card-content>
       <h3>Question {{questionNumber}}</h3>
-      <h4 [innerHTML]="question.question"></h4>
+      <div class="question-div">
+        <p [innerHTML]="question.question"></p>
+      </div>
       
-      <div>
+      
+      <div class="answer-button">
         <ion-button [disabled]="disableAnswer" *ngFor="let reponse of listReponse" [color]="showAnswerColor ? reponse.color : 'primary' " expand="block" (click)="submitAnswer(reponse.text)" shape="round" [innerHTML]="reponse.text"></ion-button>
       </div>
       
