@@ -23,6 +23,7 @@
       
       <div>
         <ion-button *ngIf="ansmwerSubmitted" (click)="nextQuestion()"  shape="round">Question suivante</ion-button>
+        <ion-button *ngIf="ansmwerSubmitted" (click)="getAnecdote(anecdote)"  shape="round">Voir l'anecdote</ion-button>
       </div>
     </ion-card-content>
   </ion-card>

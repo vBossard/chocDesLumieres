@@ -4,7 +4,15 @@ export interface User {
     concurrent:number;
     //Score
     einsteinScore:number;
-    fourasScore:number;
-    trumpScore:number;
-    zidaneScore:number;
+    jordanScore:number;
+    hepburnScore:number
+    fangioScore:number;
+    beyonceScore:number;
+    gatesScore:number;
+    bernersScore:number;
+    petersonScore:number;
+    montalciniScore:number;
+    cooperScore:number;
+    kahloScore:number;
+    tabarlyScore:number;
 }

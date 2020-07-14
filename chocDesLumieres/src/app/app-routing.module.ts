@@ -38,7 +38,11 @@ const routes: Routes = [
   {
     path: 'dual-choice',
     loadChildren: () => import('./dual-choice/dual-choice.module').then( m => m.DualChoicePageModule)
+  },  {
+    path: 'resultat',
+    loadChildren: () => import('./resultat/resultat.module').then( m => m.ResultatPageModule)
   }
+
 ];
 
 @NgModule({

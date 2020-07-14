@@ -12,6 +12,7 @@ export class ScorePage implements OnInit {
   user:User;
   constructor( private storageService:StorageService, private userService:UserStockageService) {
     this.user = this.userService.getCurrentUser();
+    console.log(this.user)
    }
 
   ngOnInit() {

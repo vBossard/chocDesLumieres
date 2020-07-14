@@ -24,7 +24,8 @@ export class PseudoChoicePage implements OnInit {
     private userService:UserStockageService) { }
 
   ngOnInit() {
-    console.log("ngOnit de la page du choix pseudo")
+    this.user = this.userService.getCurrentUser()
+    console.log(this.user)
     this.createForm();
   }
 
@@ -49,16 +50,16 @@ export class PseudoChoicePage implements OnInit {
       console.log(this.user);
       // ================= Version avec Interface =======================
       // Vérifier la présence de l'utilisateur dans le storage
-      this.storageService.getObject(this.user.pseudo).then((user)=>{
+      this.storageService.getObject(this.user.pseudo.toLowerCase()).then((user)=>{
         if(user !== null){
           console.log("Le joueur existe")
           this.user = user;
         }else if(user === null){
           console.log("Création du joueur.")
-          this.storageService.setObject(this.user['pseudo'].toLowerCase(), this.user);
+          this.userService.updateCurrentUser(this.user);
         }
       })
-      this.userService.updateCurrentUser(this.user);
+      
       this.router.navigate(['dual-choice']);
 
       

@@ -10,29 +10,101 @@
     },
     {
         "id": 2,
-        "name": "Père Fouras",
+        "name": "Michael Jordan",
         "level": "confirmé",
-        "descriptif": "Quoi ?",
-        "poids":9,
-        "image1":"pere_fouras_image1.jpg",
+        "descriptif": "Le sport, ça il connait",
+        "poids":5,
+        "image1":"jordan1.jpg",
         "image2":"" 
     },
     {
         "id": 3,
-        "name": "Donald Trump",
-        "level": "débutant",
-        "descriptif": "Pas ouf",
-        "poids":2,
-        "image1":"trump_image1.jpg",
+        "name": "Audrey Hebpburn",
+        "level": "confirmé",
+        "descriptif": "Quoi ?",
+        "poids":9,
+        "image1":"hepburn1.jpeg",
         "image2":"" 
     },
     {
         "id": 4,
-        "name": "Zinédine Zidane",
-        "level": "confirmé",
-        "descriptif": "Le sport, ça il connait",
-        "poids":5,
-        "image1":"zinedine_image1.jpg",
+        "name": "Juan Manuel Fangio",
+        "level": "débutant",
+        "descriptif": "Pas ouf",
+        "poids":2,
+        "image1":"fangio1.jpg",
+        "image2":"" 
+    },
+    {
+        "id": 5,
+        "name": "Beyonce",
+        "level": "débutant",
+        "descriptif": "Pas ouf",
+        "poids":2,
+        "image1":"beyonce.png",
+        "image2":"" 
+    },
+    {
+        "id": 6,
+        "name": "Bill Gates",
+        "level": "débutant",
+        "descriptif": "Pas ouf",
+        "poids":2,
+        "image1":"gates1.jpg",
+        "image2":"" 
+    },
+    {
+        "id": 7,
+        "name": "Tim Berners-Lee",
+        "level": "débutant",
+        "descriptif": "Pas ouf",
+        "poids":2,
+        "image1":"berners1.jpg",
+        "image2":"" 
+    },
+    {
+        "id": 8,
+        "name": "Oscar Peterson",
+        "level": "débutant",
+        "descriptif": "Pas ouf",
+        "poids":2,
+        "image1":"peterson1.png",
+        "image2":"" 
+    },
+    {
+        "id": 9,
+        "name": "Rita Levi-Montalcini",
+        "level": "débutant",
+        "descriptif": "Pas ouf",
+        "poids":2,
+        "image1":"montalcini1.jpg",
+        "image2":"" 
+    },
+    {
+        "id": 10,
+        "name": "Charlotte Cooper",
+        "level": "débutant",
+        "descriptif": "Pas ouf",
+        "poids":2,
+        "image1":"cooper1.jpg",
+        "image2":"" 
+    },
+    {
+        "id": 11,
+        "name": "Frida Kahlo",
+        "level": "débutant",
+        "descriptif": "Pas ouf",
+        "poids":2,
+        "image1":"kahlo1.jpg",
+        "image2":"" 
+    },
+    {
+        "id": 12,
+        "name": "Eric Tabarly",
+        "level": "débutant",
+        "descriptif": "Pas ouf",
+        "poids":2,
+        "image1":"tabarly1.jpg",
         "image2":"" 
     }   
 ]
