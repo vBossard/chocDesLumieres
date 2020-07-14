@@ -5,11 +5,20 @@
 </ion-header>
 
 <ion-content>
-  <h1>TODO Scores</h1>
-
   <div>
-    Votre score {{user.scoreTotal}}
+    <h1>TODO Scores</h1>
   </div>
+  
+
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title>Votre score {{user.scoreTotal}}</ion-card-title>
+    </ion-card-header>
+  
+    <ion-card-content>
+      <h3>Votre score {{user.scoreTotal}}</h3>
+    </ion-card-content>
+  </ion-card>
 
   <div>
     <ion-button color="danger" (click)="deleteAppData()" shape="round">Effacer les données</ion-button>
